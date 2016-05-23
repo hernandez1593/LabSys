@@ -1,0 +1,223 @@
+<!DOCTYPE>
+<html ng-app="labService">
+<head>
+<meta charset="UTF-8">
+<link rel=stylesheet href=styles/basicStyle.css>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<title>Asignación</title>
+</head>
+<body ng-controller = "labSysCtrl">
+	<div class="page-header">
+		<h2 align="center">Administración de horarios</h2>	</div>	
+
+	<div class="center">
+		<label class="custom-select">
+	    Laboratorio:
+	   		
+	    	<select ng-model="selLab" ng-options="lab.name for lab in labList" ng-change="intentToChangeLab(selLab)"></select>
+		</label>	
+
+	</div>
+
+	<div id="container" >			
+
+						<div>
+							<table class="tableWeek table-bordered">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Lunes</th>
+										<th>Martes</th>
+										<th>Miércoles</th>
+										<th>Jueves</th>
+										<th>Viernes</th>
+										<th>Sábado</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td>7:00 AM - 11:00 AM</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selL1" ng-change="intentToChangeStudent('L1',sels.selL1)">	
+											<option  ng-repeat="request in laboratory.listL1">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.l1}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selK1" ng-change="intentToChangeStudent('K1',sels.selK1)">		
+											<option></option><option  ng-repeat="request in laboratory.listK1">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.k1}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selM1" ng-change="intentToChangeStudent('M1',sels.selM1)">		
+											<option></option><option  ng-repeat="request in laboratory.listM1">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.m1}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selJ1" ng-change="intentToChangeStudent('J1',sels.selJ1)">		
+											<option></option><option  ng-repeat="request in laboratory.listJ1">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.j1}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selV1" ng-change="intentToChangeStudent('V1',sels.selV1)">		
+											<option></option><option  ng-repeat="request in laboratory.listV1">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.v1}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selS1" ng-change="intentToChangeStudent('S1',sels.selV1)">		
+											<option></option><option  ng-repeat="request in laboratory.listS1">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.s1}}</label>
+										</td>
+										
+									</tr>
+									<tr>
+										<td>11:00 AM - 3:00 PM</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selL2" ng-change="intentToChangeStudent('L2',sels.selL2)">		
+											<option></option><option  ng-repeat="request in laboratory.listL2">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.l2}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selK2" ng-change="intentToChangeStudent('K2',sels.selK2)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listK2">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.k2}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selM2" ng-change="intentToChangeStudent('M2',sels.selM2)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listM2">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.m2}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selJ2" ng-change="intentToChangeStudent('J2',sels.selJ2)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listJ2">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.j2}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selV2" ng-change="intentToChangeStudent('V2',sels.selV2)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listV2">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.v2}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selS2" ng-change="intentToChangeStudent('S2',sels.selS2)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listS2">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.s2}}</label>
+										</td>
+									</tr>
+									<tr>
+										<td>3:00 PM - 7:00 PM</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selL3" ng-change="intentToChangeStudent('L3',sels.selL3)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listL3">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.l3}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selK3" ng-change="intentToChangeStudent('K3',sels.selK3)">		
+											<option></option>	<option  ng-repeat="request in laboratory.listK3">{{request.fullName}}</option>
+											</select>		
+											<label>{{idt.k3}}</label>								
+
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selM3" ng-change="intentToChangeStudent('M3',sels.selM3)">		
+											<option></option><option  ng-repeat="request in laboratory.listM3">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.m3}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selJ3" ng-change="intentToChangeStudent('J3',sels.selJ3)">		
+											<option></option><option  ng-repeat="request in laboratory.listJ3">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.j3}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selV3" ng-change="intentToChangeStudent('V3',sels.selV3)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listV3">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.v3}}</label>
+										</td>
+									</tr>
+									<tr>
+										<td>7:00 PM - 11:00 PM</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selL4" ng-change="intentToChangeStudent('L4',sels.selL4)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listL4">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.l4}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selK4" ng-change="intentToChangeStudent('K4',sels.selK4)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listK4">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.k4}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selM4" ng-change="intentToChangeStudent('M4',sels.selM4)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listM4">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.m4}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selJ4" ng-change="intentToChangeStudent('J4',sels.selJ4)">	
+											<option></option>	<option  ng-repeat="request in laboratory.listJ4">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.j4}}</label>
+										</td>
+										<td class="custom-select"> 
+											<select ng-model="sels.selV4" ng-change="intentToChangeStudent('V4',sels.selV4)">		
+											<option></option><option  ng-repeat="request in laboratory.listV4">{{request.fullName}}</option>
+											</select>
+											<label>{{idt.v4}}</label>
+										</td>
+									</tr>
+								</tbody>
+
+
+							</table>
+						</div>
+
+					<div class="center" style="width: 25%;">
+
+							<table class="tableWeek table-bordered"  style="width: 100%;">
+								<thead>
+									<tr>
+										<th>Estudiantes</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr ng-repeat="request in requestsList">
+										<td ng-style="set_color({{request}})">
+											{{request.fullName}}						
+										</td>
+									</tr>
+								</tbody>
+
+
+							</table>
+						</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+
+<script src="controllers/angular.min.js"></script>
+<script src="controllers/controllerUH2.js"></script>
+<script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script>
+</body>
+</html>
