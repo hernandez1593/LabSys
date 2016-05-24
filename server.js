@@ -6,14 +6,14 @@ var mongojs = require('mongojs');
 var db = mongojs('localhost:27017/labsSystem', ['laboratory', 'administrator', 'request']);
 var bodyParser = require('body-parser');
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+//var mongoose = require('mongoose');
+//var Schema = mongoose.Schema;
 
 //Creacion de schemas de base de datos
 
-var
+//var
 
-    app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 
@@ -118,7 +118,7 @@ app.get('/consultAdmin/:who', function (req, res) {
 });
 
 
-
+nj
 app.get('/consultRequestsInSpecTime/:day', function (req, res) {
     var day = req.params.day;
     db.request.find({
