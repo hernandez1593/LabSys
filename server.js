@@ -17,28 +17,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 
-//---------- Subir archivos --------
-var multipart = require('connect-multiparty');
-
-app.use(multipart({
-    uploadDir: './tmp' //config.tmp
-}));
-/**
- * Create file upload
- */
-exports.create = function (req, res, next) {
-    var data = _.pick(req.body, 'type'),
-        uploadPath = path.normalize(cfg.data + '/uploads'),
-        file = req.files.file;
-
-    console.log(file.name); //original name (ie: sunset.png)
-    console.log(file.path); //tmp path (ie: /tmp/12345-xyaz.png)
-    console.log(uploadPath); //uploads directory: (ie: /home/user/data/uploads)
-};
-
-
-//---------- Fin subir archivos --------
-
 
 
 //obtener todos los requests
@@ -118,7 +96,6 @@ app.get('/consultAdmin/:who', function (req, res) {
 });
 
 
-nj
 app.get('/consultRequestsInSpecTime/:day', function (req, res) {
     var day = req.params.day;
     db.request.find({
