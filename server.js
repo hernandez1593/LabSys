@@ -11,9 +11,9 @@ var Schema = mongoose.Schema;
 
 //Creacion de schemas de base de datos
 
-var 
+var
 
-app.use(express.static(__dirname + '/public'));
+    app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 
@@ -48,7 +48,7 @@ app.get('/consultRequests', function (req, res) {
         res.json(docs);
     });
 });
-
+// comentario
 //Obtener un request
 app.get('/consultRequest/:id', function (req, res) {
     //console.log(req.params.id);
@@ -108,7 +108,7 @@ app.get('/consultAdministrator', function (req, res) {
 
 //Login
 app.get('/consultAdmin/:who', function (req, res) {
-            var who = req.params.who;
+    var who = req.params.who;
     db.administrator.findOne({
         name: who
     }, function (err, doc) {
