@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app = "labService">
+<head>
+  <meta charset="utf-8">
+    <link rel=stylesheet href=styles/basicStyle.css>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <title>login</title>   
+
+</head>
+<body>
+
+<div id="Login" align="center" ng-controller = "labSysCtrlLogin">
+        <br><br><br>
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-3 align-middle">
+                  <div class="jumbotron heading">
+                    <div align="center"><img src="http://cria2014.instrumentacionavanzada.net/Logo_TEC.png" WIDTH=300 HEIGHT=60></div>
+                    <br><br><br>
+                    <div class="container">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>Usuario</label>
+                                <input type="text" class="form-control"
+                                placeholder="Usuario" ng-model="user.username">
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" class="form-control"
+                                placeholder="Contraseña" ng-model="user.password">
+                            </div>                        
+                        </form>
+                        <button type="submit" ng-click="login(user.username)" class="btn btn-primary">Ingresar</button>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+      </div>
+        <!--________________pegar codigo de evee_____________________________--> 
+    </div><!--Pantalla inicio de secion (final)-->
+
+      <script src="controllers/angular.min.js"></script>
+      <script src="controllers/controllerLogin.js"></script>
+</body>
+</html>

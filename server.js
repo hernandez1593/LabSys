@@ -1,24 +1,74 @@
 var express = require('express');
 var app = express();
 var done = false;
-var mongojs = require('mongojs');
+//var mongojs = require('mongojs');
 
-var db = mongojs('localhost:27017/labsSystem', ['laboratory', 'administrator', 'request']);
+//var db = mongojs('localhost:27017/labsSystem', ['laboratory', 'administrator', 'request']);
 var bodyParser = require('body-parser');
 
-//var mongoose = require('mongoose');
-//var Schema = mongoose.Schema;
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/labSystem');
+
+//crear SCHEMA
+var Schema mongoose.Schema;
+
+
+//solicitud
+var requestSchema = new Schema({
+    name: String,
+    id: {
+        type: String,
+        requiered: true,
+        unique: true
+    },
+    schedule: {
+        l1: Boolean,
+        l2: Boolean,
+        l3: Boolean,
+        k1: Boolean,
+        k2: Boolean,
+        k3: Boolean,
+        m1: Boolean,
+        m2: Boolean,
+        m3: Boolean,
+        j1: Boolean,
+        j2: Boolean,
+        j3: Boolean,
+        v1: Boolean,
+        v2: Boolean,
+        v3: Boolean,
+        s1: Boolean,
+        s2: Boolean
+    }
+
+});
+
+
+
+/*
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
+});
+*/
+
+
+
+//var requestSchema = mongoose.Schema;
 
 //Creacion de schemas de base de datos
 
 //var
 
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
 
 
 
 
+/*
 //obtener todos los requests
 app.get('/consultRequests', function (req, res) {
     db.request.find(function (err, docs) {
@@ -248,7 +298,7 @@ app.put('/updateLab/:lab', function (req, res) {
     );
 
 });
-
+*/
 
 app.listen(3000);
 console.log("Server ok in port: 3000");

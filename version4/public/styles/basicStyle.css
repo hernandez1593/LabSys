@@ -1,0 +1,150 @@
+
+* {margin: 0; padding: 0;}
+#container {height: 100%; width:100%; font-size:0;}
+#left,#right {display: inline-block; *display: inline; zoom: 1; vertical-align: top}
+#left {width: 70%;}
+#right {width: 25%;}
+
+.alright{
+
+  
+}
+.header{
+    background-color: rgb(0, 67, 121);
+
+}
+.type1{
+        color: rgb(0, 77, 121);
+}
+.space{
+    margin-top: 15px;
+}
+.lineadiv{
+    background-color: rgb(251, 99, 103);
+    width: 100%;
+    height: 7px;
+    /*margin-top: px;*/
+    position: absolute;
+}
+    
+.titulo{
+    border-style: none;
+    font-family: helvetica;
+    font-size:30px;
+    color: #FFFFFF;
+    padding: 100px;
+}
+.tableWeek{
+    float:left;
+  font-family: Helvetica;
+  cell-spacing:500px;
+  border: 1px solid #eee;
+  padding: 50px;
+  color:#888;
+  width:900px;
+    height: auto;
+  top:-50%;
+}
+.tableWeek th{
+  font-family: Helvetica;
+  cell-spacing:10px;
+  background-color:rgb(204,217,228);;
+  color: color: rgb(0, 77, 121);
+  text-align: center;
+  padding:20px 40px 20px 40px;
+}
+.tableWeek td{
+  padding:10px;  
+}
+.tableWeek tr{
+    background-color: #eee;
+}
+
+
+.fix3d{
+    /* fixes half pixel blur */
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  
+}
+.center-vert {
+  /* center vert */
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+ 
+}
+.center-horz{
+  /* center horz */
+  margin: 0 auto;
+  height:200px;
+  width:200px;
+}
+.hover{
+  color:#fff;
+  background-color:#777;
+}
+
+
+
+    .custom-select select {
+        display: inline-block;
+        border: 2px solid #bbb;
+        padding: 4px 3px 3px 5px;
+        margin: 0;
+        font: inherit;
+        outline:none; /* remove focus ring from Webkit */
+        line-height: 1.2;
+        background: #f8f8f8;
+        
+        -webkit-appearance:none; /* remove the strong OSX influence from Webkit */
+        
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+    }
+
+    /* for Webkit's CSS-only solution */
+    @media screen and (-webkit-min-device-pixel-ratio:0) { 
+        .custom-select select {
+            padding-right:30px;    
+        }
+    }
+    
+    /* Since we removed the default focus styles, we have to add our own */
+    .custom-select select:focus {
+        -webkit-box-shadow: 0 0 3px 1px #c00;
+        -moz-box-shadow: 0 0 3px 1px #c00;
+        box-shadow: 0 0 3px 1px #c00;
+    }
+    
+    /* Select arrow styling */
+    .custom-select:after {
+        content: "▼";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 60%;
+        line-height: 30px;
+        padding: 0 7px;
+        background: #bbb;
+        color: white;
+        
+        pointer-events:none;
+        
+        -webkit-border-radius: 0 6px 6px 0;
+        -moz-border-radius: 0 6px 6px 0;
+        border-radius: 0 6px 6px 0;
+    }
+    
+    .no-pointer-events .custom-select:after {
+        content: none;
+    }
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}

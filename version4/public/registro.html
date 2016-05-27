@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html ng-app="labService">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="styles/basicStyle.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<title>Registro</title>
+</head>
+<body>
+	<div id="header-container" class="header">
+    <header class="wrapper clearfix">
+        <div class="center">
+            <h1>
+                
+                <img src="http://www.tec.ac.cr/Paginas/images/tec-logo.png" WIDTH=200 HEIGHT=auto BORDER=0>
+                <span class="titulo">Solicitud de operador</span>
+            </h1>
+        </div>
+        <div class="lineadiv">
+        
+        </div>
+    </header>
+</div>
+	
+	<div ng-controller = "labSysCtrl">
+        <div class="space"></div>
+	<form name="fileUploadForm"> <fieldset>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-6">
+					<div  class="form-group">
+						<label class="type1" for="idNumberInput">Cédula</label>
+						<input type="text" class="form-control" ng-model="request.charter" id="idNumberInput" required>
+					</div>
+
+
+							<div class="form-group">
+								<label class="type1" for="carnetInput">Carnet</label>
+								<input type="text" class="form-control" ng-model="request.studentId" id="carnetInput" placeholder="Solo números" required>
+							</div>
+
+							<!--  -->
+							<div class="form-group">
+								<label class="type1" for="nameInput">Nombre completo</label>
+								<input type="text" class="form-control" ng-model="request.fullName" id="nameInput" placeholder="Apellidos, Nombre" required>
+							</div>
+
+							<!--  -->
+							<div class="form-group">
+								<label class="type1" for="emailInput">Correo electr&oacutenico</label>
+								<input type="email" class="form-control" ng-model="request.email" id="emailInput" placeholder="usuario@ejemplo.com" required>
+							</div>
+
+							<!--  -->
+							<div class="form-group">
+								<label class="type1" for="phoneInput">Tel&eacutefono</label>
+								<input type="phone" class="form-control" ng-model="request.phoneNumber" id="phoneInput" placeholder="5555-5555" required>
+							</div>
+
+							<!--  -->
+							<div class="form-group">
+								<label class="type1" for="addressInput">Direcci&oacuten exacta</label>
+								<input type="text" class="form-control" ng-model="request.address" id="addressInput" placeholder="Texto" required>
+							</div>
+
+							<!--  -->
+							<div class="form-group">
+								<label class="type1" for="scoreInput">Ponderado</label>
+								<input type="number" class="form-control" ng-model="request.average" id="scoreInput" placeholder="" required>
+							</div>
+							
+
+							
+			    		  <legend>Adjuntar archivo  .pdf o imagen:</legend>
+					      <!--<input class="text-center" type="file" ngf-select ng-model="file" name="file"  accept=".pdf, image/*" required>
+					      <i ng-show="fileUploadForm.file.$error.required">*requerido</i><br>-->
+
+					    <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" gf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
+						    		
+
+
+				</div>
+
+				<div class="col-md-6">
+					<!--  -->
+							<div name="chango" class="form-group">
+								<label name="mono" class="type1" for="bankAccountInput">Cuenta del Banco Nacional</label>
+								<input class="form-control ng-pristine ng-valid ng-touched " minlength="15"
+  maxlength="15" type="text"  id="bankAccountInput" styles="365px 64px" required> 
+							</div>
+
+							<!--  -->
+							<div name="changa" class="form-group">
+								<label class="type1" for="sinpeInput">Cuenta SINPE</label>
+								<input name="mona" type="text" class="form-control"
+								ng-model="request.account1"  minlength="17"
+ maxlength="17" id="sinpeInput" required>
+							</div>
+							
+							<!--  -->
+							<div class="form-group">
+								<label class="type1" for="substantiationInput">Justificaci&oacuten</label>
+								<textarea class="form-control" rows="10"  ng-model="request.motivation" id="substantiationInput" required></textarea>
+							</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-responsive">
+						<table class="tableWeek table-bordered">
+							<thead>
+							
+								<tr>
+									<th>#</th>
+									<th>Lunes</th>
+									<th>Martes</th>
+									<th>Miércoles</th>
+									<th>Jueves</th>
+									<th>Viernes</th>
+									<th>Sábado</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>7:00 AM <br> 11:00 AM</td>
+									<td id="L1" ng-click="checkStade('L1')" ng-style="set_color2('L1')"></td>
+									<td id="K1" ng-click="checkStade('K1')" ng-style="set_color2('K1')"></td>
+									<td id="M1" ng-click="checkStade('M1')" ng-style="set_color2('M1')"></td>
+									<td id="J1" ng-click="checkStade('J1')" ng-style="set_color2('J1')"></td>
+									<td id="V1" ng-click="checkStade('V1')" ng-style="set_color2('V1')"></td>
+									<td id="S1" ng-click="checkStade('S1')" ng-style="set_color2('S1')"></td>
+								</tr>
+								<tr>
+									<td>11:00 AM <br> 3:00 PM</td>
+									<td id="L2" ng-click="checkStade('L2')" ng-style="set_color2('L2')"></td>
+									<td id="K2" ng-click="checkStade('K2')" ng-style="set_color2('K2')"></td>
+									<td id="M2" ng-click="checkStade('M2')" ng-style="set_color2('M2')"></td>
+									<td id="J2" ng-click="checkStade('J2')" ng-style="set_color2('J2')"></td>
+									<td id="V2" ng-click="checkStade('V2')" ng-style="set_color2('V2')"></td>
+									<td id="S2" ng-click="checkStade('S2')" ng-style="set_color2('S2')"></td>
+								</tr>
+								<tr>
+									<td>3:00 PM <br> 7:00 PM</td>
+									<td id="L3" ng-click="checkStade('L3')" ng-style="set_color2('L3')"></td>
+									<td id="K3" ng-click="checkStade('K3')" ng-style="set_color2('K3')"></td>
+									<td id="M3" ng-click="checkStade('M3')" ng-style="set_color2('M3')"></td>
+									<td id="J3" ng-click="checkStade('J3')" ng-style="set_color2('J3')"></td>
+									<td id="V3" ng-click="checkStade('V3')" ng-style="set_color2('V3')"></td>
+									
+								</tr>
+								<tr>
+									<td>7:00 PM <br> 11:00 PM</td>
+									<td id="L4" ng-click="checkStade('L4')" ng-style="set_color2('L4')"></td>
+									<td id="K4" ng-click="checkStade('K4')" ng-style="set_color2('K4')"></td>
+									<td id="M4" ng-click="checkStade('M4')" ng-style="set_color2('M4')"></td>
+									<td id="J4" ng-click="checkStade('J4')" ng-style="set_color2('J4')"></td>
+									<td id="V4" ng-click="checkStade('V4')" ng-style="set_color2('V4')"></td>
+									
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<br>
+					
+					<!--<button class="btn btn-info text-center"  ng-click="upload(file)">Subir archivo</button>
+					<br>-->
+					<button class="btn btn-success text-center" id="bSalir" ng-click="insertRequest()">Enviar</button>
+
+				</div>
+					
+
+			</div>
+
+
+
+									
+		</div>
+	</fieldset><br>
+	</form>
+	</div>
+
+<script src="controllers/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+<script src="controllers/ng-file-upload-shim.min.js"></script>
+<script src="controllers/ng-file-upload.min.js"></script>
+
+
+</body>
+</html>
